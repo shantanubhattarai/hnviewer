@@ -43,6 +43,7 @@ class StoryList extends React.Component {
 
   changePage(amount = 1){
     if(this.state.page === 0 && amount === -1) return;
+    if(this.state.page === Math.floor(this.state.stories.length / 30) && amount === 1) return;
     this.setState({page: this.state.page + amount}, () => {this.fetchStoryDetails()});
 
   }
